@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<!--
+  Cross-browser / cross-platform matrix for a cloud target (Sauce Labs, BrowserStack) or a Grid.
+  Each <test> runs the whole suite on one browser/platform combination; the <test> blocks run in parallel.
+  Run with:  mvn test -Dtarget=saucelabs -Dsurefire.suiteXmlFiles=src/test/resources/suites/cross-browser.xml
+-->
+<suite name="Cloud Execution Cross-Browser" parallel="tests" thread-count="4" verbose="1">
+    <test name="chrome-windows">
+        <parameter name="browser" value="chrome"/>
+        <parameter name="browserVersion" value="latest"/>
+        <parameter name="platform" value="Windows 11"/>
+        <classes>
+            <class name="io.github.samramkumarqa.cloud.tests.LoginTest"/>
+            <class name="io.github.samramkumarqa.cloud.tests.InventoryTest"/>
+            <class name="io.github.samramkumarqa.cloud.tests.CheckoutTest"/>
+        </classes>
+    </test>
+    <test name="firefox-windows">
+        <parameter name="browser" value="firefox"/>
+        <parameter name="browserVersion" value="latest"/>
+        <parameter name="platform" value="Windows 11"/>
+        <classes>
+            <class name="io.github.samramkumarqa.cloud.tests.LoginTest"/>
+            <class name="io.github.samramkumarqa.cloud.tests.InventoryTest"/>
+            <class name="io.github.samramkumarqa.cloud.tests.CheckoutTest"/>
+        </classes>
+    </test>
+</suite>

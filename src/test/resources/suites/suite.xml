@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<!--
+  Default suite: the whole SauceDemo suite, methods in parallel, in one browser.
+  The browser defaults to chrome and can be overridden with -Dbrowser=firefox (or per <test> parameters, as in
+  cross-browser.xml). Where the suite runs is chosen separately with -Dtarget=local|grid|saucelabs|browserstack.
+-->
+<suite name="Cloud Execution Suite" parallel="methods" thread-count="3" verbose="1">
+    <test name="SauceDemo">
+        <classes>
+            <class name="io.github.samramkumarqa.cloud.tests.LoginTest"/>
+            <class name="io.github.samramkumarqa.cloud.tests.InventoryTest"/>
+            <class name="io.github.samramkumarqa.cloud.tests.CheckoutTest"/>
+        </classes>
+    </test>
+</suite>
